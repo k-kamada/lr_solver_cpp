@@ -5,9 +5,10 @@ int main() {
     LR_Solver dataset("Boston.csv", 0, 14, true);
 
     // Lasso(ADMM)
+    int max_iter = 1000;
     float lambda_l = 1.0;
     float rho_l = 1.0;
-    auto beta_l = dataset.solve_lasso_admm(1000, rho_l, lambda_l);
+    auto beta_l = dataset.solve_lasso_admm(max_iter, rho_l, lambda_l);
     std::cout << "Lasso ADMM:(lambda=" << lambda_l << ", rho=" << rho_l << ")" << std::endl;
     dataset.show_results(beta_l);
     
